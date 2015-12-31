@@ -55,6 +55,9 @@ public class WeatherActivity extends Activity implements OnClickListener{
 	 * 更新天气按钮
 	 */
 	private Button refreshWeather;
+	/**
+	* 切换城市按钮
+	*/
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -78,10 +81,13 @@ public class WeatherActivity extends Activity implements OnClickListener{
 			weatherInfoLayout.setVisibility(View.INVISIBLE);
 			cityNameText.setVisibility(View.INVISIBLE);
 			queryWeatherCode(countyCode);
-		} else {
+		} else {	
 			// 没有县级代号时就直接显示本地天气
 			showWeather();
 		}
+
+		switchCity = (Button) findViewById(R.id.switch_city);
+		refreshWeather = (Button) findViewById(R.id.refresh_weather);
 		switchCity.setOnClickListener(this);
 		refreshWeather.setOnClickListener(this);
 	}
